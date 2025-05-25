@@ -1,0 +1,20 @@
+Check the info correct or not:
+
+If(
+    Len(TextCanvas4_1.CardNumber) = 16 &&
+    IsMatch(TextCanvas4_1.CardNumber, "^[0-9]{16}$") &&
+
+    Len(TextCanvas4_2.Expiry) = 5 &&
+    IsMatch(TextCanvas4_2.Expiry, "^[0-9]{2}/[0-9]{2}$") &&
+
+    Len(TextCanvas4_3.CVC) = 3 &&
+    IsMatch(TextCanvas4_3.CVC, "^[0-9]{3}$") &&
+
+    !IsBlank(Dropdown1.Selected.Value) &&
+
+    Len(TextCanvas4_4.PostalCode) >= 4 && Len(TextCanvas4_4.PostalCode) <= 6 &&
+    IsMatch(TextCanvas4_4.PostalCode, "^[0-9]{4,6}$"),
+
+    Navigate('Payment method', ScreenTransition.Fade),
+    Notify("❌ Invalid input. Please check all fields.", NotificationType.Error)
+)
